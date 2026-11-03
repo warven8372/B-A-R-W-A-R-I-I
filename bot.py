@@ -7,11 +7,12 @@ from telethon.sessions import StringSession
 API_ID = 33790522
 API_HASH = "00e4131295f55452e143c06099c1ddae"
 
-# ✅ سێشنی نوێ لێرە دانراوە
+# ✅ سێشنی نوێ (کە پێشتر ناردبوویت)
 SESSION_STRING = "1ApWapzMBu0UVGwoi0wVdubb9DChXtMDut3_Y9ojBrl6wjlggvnZXHhoUrQqsBZBnGu3uh1WvEObhf1gQeQZyRbeXISzt6FwXrWvXhnpwwN-MA0tXQ81uXdUNWIvqM6EBUBdvjMVEsMpix4ykeA0GToGQCLnSv1Ude5xE27usi3TCTXpaFxX6yhxpjArNHJAztU4oWQXE1egEeWGGegIIrpkG73kSx6vaNyzQp-vpwEw1-s6Y8gdYX-L7_Q_aEu8KiJN4IMhdkzbD71ywu2OG2IL3g9TI5Mlniu1XD6iAYSR-6SHk4GjigLJNw2Jg2ab0qnyTuVQ-FTo0C1Py95huRKINx4zD8SY="
 
 SOURCE_CHANNEL = "@kroabscrap"
-TARGET_CHANNEL = "@duhok_KRD"
+# ✅ یوزەرنەیمی نوێت لێرە دانراوە
+TARGET_CHANNEL = "@Kurdstan822" 
 # ====================================================
 
 # ===== Regex ـەکان یەک جار کۆمپایل بکە (خێراترە) =====
@@ -24,21 +25,13 @@ RE_HSPACE    = re.compile(r'[ \t]+')
 RE_BLANKLINE = re.compile(r'\n\s*\n+')
 
 def clean_text(text: str) -> str:
-    """
-    تەنها ئەم شتانە لادەبات:
-    - ستێرە (*) و بەک‌تیک (`)
-    - واتەرمارک: "Taken ➡ 12.592312"
-    - هێڵی کات: "Time 10:00:00"
-    - ناوی پەرەپێدەر: "dev @warven_24 💻"
-    - بۆشایی زیادە (بەڵام newline دەپارێزێت)
-    """
     text = RE_STAR.sub('', text)
     text = RE_BACKTICK.sub('', text)
     text = RE_TAKEN.sub('', text)
     text = RE_TIME.sub('', text)
     text = RE_DEV.sub('', text)
-    text = RE_HSPACE.sub(' ', text)        # ✅ تەنها space/tab
-    text = RE_BLANKLINE.sub('\n', text)    # ✅ هێڵی بەتاڵ بسڕەرەوە
+    text = RE_HSPACE.sub(' ', text)
+    text = RE_BLANKLINE.sub('\n', text)
     return text.strip()
 
 client = TelegramClient(StringSession(SESSION_STRING), API_ID, API_HASH)
@@ -50,7 +43,6 @@ async def handler(event):
         original_text = msg.text or ""
         cleaned_text = clean_text(original_text)
 
-        # ✅ ئەگەر دەق نییە بەڵام میدیا هەیە → میدیاکە بنێرە
         if not cleaned_text:
             if msg.media:
                 await client.send_file(
@@ -63,7 +55,6 @@ async def handler(event):
                 print("⏭️ پەیام بەتاڵ بوو، فڕێدرا")
             return
 
-        # ✅ ئەگەر میدیا هەبوو لەگەڵ کاپشنەکە بینێرە
         if msg.media:
             await client.send_file(
                 TARGET_CHANNEL,
