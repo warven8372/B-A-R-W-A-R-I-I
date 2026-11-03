@@ -10,7 +10,7 @@ API_HASH = "00e4131295f55452e143c06099c1ddae"
 SESSION_STRING = "1ApWapzMBuyd0d1Cw58GCnAF5DFPMdMrs_DG1PXaMd8FEWOGckYQR49VMluHjDtbGizG8AO_ZloYMTZ54OFf6oP73nVutxxucg23t5y7KtsHU9YajN3edLjk1WyJR13hzw7ytfs2OrCWgTi-iwtDWtupXUNGpe0xKHdRdlz-hj6jYjdwGvpLD-Xh0ST6abo0MKUem23wuH7uNlyG6jNi-RJXZtIAuKCTjM7MwpCZ2Aw761qVUhYrU66XDvdPikn0Gg0idM9duVfc1I3pBsMH1R7zqnmjYvP5KC8vKuvaDO_HLfPCWe9NwbEhShJ28MEh83lmKtdq2leK5hn4uk42H4rc9JF4ssp8="
 
 SOURCE_CHANNEL = "@kroabscrap"
-TARGET_CHANNEL = "@Cc428Kurd"
+TARGET_CHANNEL = "@duhok_KRD"
 # ====================================================
 
 # ===== Regex ـەکان یەک جار کۆمپایل بکە (خێراترە) =====
