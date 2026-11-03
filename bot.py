@@ -42,7 +42,6 @@ def clean_text(text: str) -> str:
 
 client = TelegramClient(StringSession(SESSION_STRING), API_ID, API_HASH)
 
-
 @client.on(events.NewMessage(chats=SOURCE_CHANNEL))
 async def handler(event):
     try:
@@ -78,7 +77,6 @@ async def handler(event):
     except Exception as e:
         print(f"❌ هەڵە: {type(e).__name__}: {e}")
 
-
 async def main():
     await client.start()
     me = await client.get_me()
@@ -86,7 +84,6 @@ async def main():
     print(f"📡 سەرچاوە: {SOURCE_CHANNEL}")
     print(f"🎯 ئامانج: {TARGET_CHANNEL}")
     await client.run_until_disconnected()
-
 
 if __name__ == "__main__":
     asyncio.run(main())
